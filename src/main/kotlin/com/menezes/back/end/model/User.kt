@@ -1,5 +1,6 @@
 package com.menezes.back.end.model
 
+import com.menezes.backend.client.dto.UserDTO
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
@@ -20,16 +21,17 @@ data class User(
 ) {
     companion object {
         fun convert(dto: UserDTO): User {
-            requireNotNull(dto.address) { "Address cannot be null" }
-            requireNotNull(dto.phone) { "Phone cannot be null" }
-            requireNotNull(dto.registrationDate) { "Registration date cannot be null" }
+            val address = requireNotNull(dto.address) { "Address cannot be null" }
+            val phone = requireNotNull(dto.phone) { "Phone cannot be null" }
+            val registrationDate =
+                requireNotNull(dto.registrationDate) { "Registration date cannot be null" }
             return User(
                 name = dto.name,
                 cpf = dto.cpf,
-                address = dto.address,
+                address = address,
                 email = dto.email,
-                phone = dto.phone,
-                registrationDate = dto.registrationDate,
+                phone = phone,
+                registrationDate = registrationDate,
             )
         }
     }
