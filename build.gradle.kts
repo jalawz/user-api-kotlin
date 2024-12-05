@@ -4,7 +4,7 @@ plugins {
     id("org.springframework.boot") version "3.4.0"
     id("io.spring.dependency-management") version "1.1.6"
     kotlin("plugin.jpa") version "1.9.25"
-    id("org.jlleitschuh.gradle.ktlint") version "11.6.0" //
+    id("org.jlleitschuh.gradle.ktlint") version "11.6.0"
 }
 
 group = "com.menezes.back.end"
@@ -18,6 +18,9 @@ java {
 
 repositories {
     mavenCentral()
+    maven {
+        url = uri("file:///home/paulo/training/shopping_client/build/repo")
+    }
 }
 
 ktlint {
@@ -39,6 +42,8 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+    implementation("com.menezes.backend.client:shopping_client:1.0-SNAPSHOT")
 }
 
 kotlin {

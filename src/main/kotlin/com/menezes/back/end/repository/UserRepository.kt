@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository
 interface UserRepository : JpaRepository<User, Long> {
     fun findByCpf(cpf: String): User
 
-    fun queryByNomeLike(name: String): List<User>
+    fun queryByNameLike(name: String): List<User>
 }

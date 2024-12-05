@@ -1,6 +1,5 @@
 package com.menezes.back.end.model
 
-import com.menezes.back.end.dto.UserDTO
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
